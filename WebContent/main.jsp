@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -121,29 +122,31 @@
 </div>
 <div region="west" style="width: 200px" title="导航菜单" split="true">
 	<div class="easyui-accordion" data-options="fit:true,border:false">
-		<div title="仓库管理"  data-options="iconCls:'icon-khgl'" style="padding:10px;">
-			<a href="javascript:openTab('供货商信息管理','customerManage.jsp','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 150px;">供货商信息管理</a>
-			<a href="javascript:openTab('商品库存管理','productSearch.jsp','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">商品库存管理</a>
-			<a href="javascript:openTab('订单管理','billManage.jsp','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">订单管理</a>
-		</div>
-		<div title="会员管理"  data-options="iconCls:'icon-khgl'" style="padding:10px;">
-			<a href="javascript:openTab('收银信息管理','ticketManage.jsp','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">收银信息管理</a>
-			<a href="javascript:openTab('会员信息管理','memberManage.jsp','icon-user')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-user'" style="width: 150px;">会员信息管理</a>
-		</div>
-		<div title="基础数据管理"  data-options="iconCls:'icon-jcsjgl'" style="padding:10px">
-			<a href="javascript:openTab('数据字典管理','dataDicManage.jsp','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">数据字典管理</a>
-			<a href="javascript:openTab('员工信息管理','userManage.jsp','icon-user')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-user'" style="width: 150px;">员工信息管理</a>
-		</div>
-		<div title="统计报表"  data-options="iconCls:'icon-tjbb'" style="padding:10px">
-			<a href="javascript:openTab('供货商订单分析','khgxfx.jsp','icon-khgxfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgxfx'" style="width: 150px;">客户贡献分析</a>
-			<a href="javascript:openTab('客户构成分析','khgcfx.jsp','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">客户构成分析</a>
-			<a href="javascript:openTab('客户服务分析','khfwfx.jsp','icon-khfwfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khfwfx'" style="width: 150px;">客户服务分析</a>
-			<a href="javascript:openTab('客户流失分析','khlsfx.jsp','icon-khlsfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsfx'" style="width: 150px;">客户流失分析</a>
-		</div>
-		<div title="系统管理"  data-options="iconCls:'icon-item'" style="padding:10px">
-			<a href="javascript:openPasswordModifyDialog()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-modifyPassword'" style="width: 150px;">修改密码</a>
-			<a href="javascript:logout()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-exit'" style="width: 150px;">安全退出</a>
-		</div>
+		<c:if test="${currentUser.roleName == '超市管理员'}">
+			<div title="仓库管理"  data-options="iconCls:'icon-khgl'" style="padding:10px;">
+				<a href="javascript:openTab('供货商信息管理','customerManage.jsp','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 150px;">供货商信息管理</a>
+				<a href="javascript:openTab('商品库存管理','productSearch.jsp','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">商品库存管理</a>
+				<a href="javascript:openTab('订单管理','billManage.jsp','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">订单管理</a>
+			</div>
+			<div title="会员管理"  data-options="iconCls:'icon-khgl'" style="padding:10px;">
+				<a href="javascript:openTab('收银信息管理','ticketManage.jsp','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">收银信息管理</a>
+				<a href="javascript:openTab('会员信息管理','memberManage.jsp','icon-user')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-user'" style="width: 150px;">会员信息管理</a>
+			</div>
+			<div title="基础数据管理"  data-options="iconCls:'icon-jcsjgl'" style="padding:10px">
+				<a href="javascript:openTab('数据字典管理','dataDicManage.jsp','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">数据字典管理</a>
+				<a href="javascript:openTab('员工信息管理','userManage.jsp','icon-user')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-user'" style="width: 150px;">员工信息管理</a>
+			</div>
+		</c:if>
+		<c:if test="${currentUser.roleName != '销售主管'}">
+			<div title="统计报表"  data-options="iconCls:'icon-tjbb'" style="padding:10px">
+				<a href="javascript:openTab('供货商订单分析','ghsddfx.jsp','icon-khgxfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgxfx'" style="width: 150px;">供货商订单分析</a>
+				<a href="javascript:openTab('供货商构成分析','ghsgcfx.jsp','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">供货商构成分析</a>
+			</div>
+			<div title="系统管理"  data-options="iconCls:'icon-item'" style="padding:10px">
+				<a href="javascript:openPasswordModifyDialog()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-modifyPassword'" style="width: 150px;">修改密码</a>
+				<a href="javascript:logout()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-exit'" style="width: 150px;">安全退出</a>
+			</div>
+		</c:if>
 	</div>
 </div>
 <div region="south" style="height: 25px;padding: 5px" align="center">
